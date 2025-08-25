@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TamagochiStats" load_steps=3 format=3 uid="uid://c1c6g7as46uy6"]
+
+[ext_resource type="Script" uid="uid://byvkwtdmtokyv" path="res://Resources/Characters/tamagochi_stats.gd" id="1_k0v51"]
+[ext_resource type="Texture2D" uid="uid://dwq1xldgnedap" path="res://Assets/Characters/Globlin_Base.png" id="2_wl84u"]
+
+[resource]
+script = ExtResource("1_k0v51")
+name = "Globlin"
+sprite = ExtResource("2_wl84u")
+health = 50.0
+hunger = 100.0
+move_speed = 10.0
+metadata/_custom_type_script = "uid://byvkwtdmtokyv"

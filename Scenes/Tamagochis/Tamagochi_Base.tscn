@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgpmisvuowcis"]
+
+[ext_resource type="Script" uid="uid://by286l76qnjef" path="res://Scripts/Characters/tamagochi_base.gd" id="1_udyy6"]
+[ext_resource type="Resource" uid="uid://c1c6g7as46uy6" path="res://Resources/Characters/Globlin.tres" id="2_qhw52"]
+[ext_resource type="Script" uid="uid://dds564yh606w3" path="res://StateMachines/Scripts/state_machine_base.gd" id="3_d8xg3"]
+[ext_resource type="Script" uid="uid://c1rvisii8jkr4" path="res://StateMachines/States/Idle.gd" id="4_wdkmw"]
+
+[node name="Tamagochi_Base" type="CharacterBody2D" node_paths=PackedStringArray("tama_body")]
+script = ExtResource("1_udyy6")
+tama_res = ExtResource("2_qhw52")
+tama_body = NodePath(".")
+
+[node name="Tamagochi_Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": true,
+"pending_changes": {
+"source": "res://AsepriteFiles/MonsterSpriteBases.aseprite"
+},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": ["Monsters"],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://Assets/AsepriteFiles/MonsterSpriteBases.aseprite",
+"source_uid": 700413002271198916
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a048cab1b557a5c93967c2111415a319"
+
+[node name="State_Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_d8xg3")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="State_Machine"]
+script = ExtResource("4_wdkmw")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c23s2gdfadr0t"]
+
+[ext_resource type="PackedScene" uid="uid://cgpmisvuowcis" path="res://Scenes/Tamagochis/Tamagochi_Base.tscn" id="1_ttep0"]
+
+[node name="Teste_Level" type="Node2D"]
+
+[node name="Tamagochi_Base" parent="." instance=ExtResource("1_ttep0")]
+position = Vector2(110, 64)
