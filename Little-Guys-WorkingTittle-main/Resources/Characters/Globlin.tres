@@ -1,7 +1,14 @@
-[gd_resource type="Resource" script_class="TamagochiStats" load_steps=3 format=3 uid="uid://c1c6g7as46uy6"]
+[gd_resource type="Resource" script_class="TamagochiStats" load_steps=5 format=3 uid="uid://c1c6g7as46uy6"]
 
 [ext_resource type="Script" uid="uid://byvkwtdmtokyv" path="res://Resources/Characters/tamagochi_stats.gd" id="1_k0v51"]
+[ext_resource type="Shader" uid="uid://bavvuj5f5avx8" path="res://Shadders/Outline.gdshader" id="1_pvb6d"]
 [ext_resource type="Texture2D" uid="uid://dwq1xldgnedap" path="res://Assets/Characters/Globlin_Base.png" id="2_wl84u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0eusx"]
+shader = ExtResource("1_pvb6d")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_time_scale = 0.0
 
 [resource]
 script = ExtResource("1_k0v51")
@@ -9,5 +16,7 @@ name = "Globlin"
 sprite = ExtResource("2_wl84u")
 health = 50.0
 hunger = 100.0
+stomach_size = 100.0
 move_speed = 10.0
+material = SubResource("ShaderMaterial_0eusx")
 metadata/_custom_type_script = "uid://byvkwtdmtokyv"

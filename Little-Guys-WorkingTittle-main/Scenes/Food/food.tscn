@@ -9,7 +9,7 @@ size = Vector2(16, 16)
 [sub_resource type="CircleShape2D" id="CircleShape2D_r715g"]
 radius = 7.0
 
-[node name="Food" type="Area2D"]
+[node name="Food" type="Area2D" groups=["Items"]]
 script = ExtResource("1_gjmud")
 food_res = ExtResource("2_r715g")
 

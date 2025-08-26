@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalBus="*res://Scripts/Singletons/SignalBus.gd"
+GameManager="*res://Scripts/Singletons/GameManager.gd"
 
 [display]
 

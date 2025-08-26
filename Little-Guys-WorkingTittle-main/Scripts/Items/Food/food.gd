@@ -11,7 +11,7 @@ var drag_offset:= Vector2.ZERO
 
 func _ready() -> void:
 	
-	
+	add_to_group("Food")
 	food_sprite.texture = food_res.food_sprite
 
 
@@ -30,6 +30,7 @@ func _process(delta: float) -> void:
 	if is_dragging:
 		global_position = get_global_mouse_position() + drag_offset
 
+
 func _mouse_over() -> bool:
 	
 	var mouse_pos = get_global_mouse_position()
@@ -42,12 +43,3 @@ func _mouse_over() -> bool:
 		return global_position.distance_to(mouse_pos) <= shape.radius
 	
 	return false
-
-
-func _on_hit_box_area_entered(area: Area2D) -> void:
-	
-	#PLAYER INTERACTIONS
-	print("Tamagochi comeu")
-	
-	
-	pass

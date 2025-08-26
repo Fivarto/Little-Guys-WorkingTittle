@@ -15,7 +15,8 @@ func randomize_wander():
 		wander_timer = randf_range(1, 3)
 
 func _Enter():
-	
+	print("ENTROU IDLE")
+	target_temp = get_tree().get_first_node_in_group("Items")
 	randomize_wander()
 
 
@@ -31,7 +32,13 @@ func _Update(delta: float):
 func _Physics_Update(delta: float):
 	
 	if owner.tama_body:
-		
 		owner.tama_body.velocity = move_to_position * owner.tama_res.move_speed
+		
 	
-	
+	if target_temp and is_instance_valid(target_temp):
+		var direction = target_temp.global_position - owner.tama_body.global_position
+		
+		if direction.length() < 50:
+			Transitioned.emit(self, "Follow")
+	else:
+		target_temp = null
