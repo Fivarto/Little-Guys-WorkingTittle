@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cgpmisvuowcis"]
+[gd_scene load_steps=14 format=3 uid="uid://cgpmisvuowcis"]
 
 [ext_resource type="Script" uid="uid://by286l76qnjef" path="res://Scripts/Characters/tamagochi_base.gd" id="1_udyy6"]
 [ext_resource type="Resource" uid="uid://c1c6g7as46uy6" path="res://Resources/Characters/Globlin.tres" id="2_qhw52"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cbr4n5lc6v5jt" path="res://Assets/UI/StatusBar8PX.png" id="6_4b0ir"]
 [ext_resource type="Script" uid="uid://csxyy3yyviwr5" path="res://StateMachines/States/follow.gd" id="7_6ybb5"]
 [ext_resource type="Texture2D" uid="uid://q4mvdwkk3ufv" path="res://Assets/UI/StatusBar_FULL8PX.png" id="7_ua8gj"]
+[ext_resource type="Script" uid="uid://b7iwn4cjc6la4" path="res://StateMachines/States/Selected.gd" id="8_3n4fh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ybb5"]
 shader = ExtResource("3_ua8gj")
@@ -20,6 +21,7 @@ shader_parameter/blink_time_scale = 0.0
 radius = 11.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ybb5"]
+size = Vector2(12, 12)
 
 [node name="Tamagochi_Base" type="CharacterBody2D" node_paths=PackedStringArray("tama_body") groups=["Tamagochi"]]
 script = ExtResource("1_udyy6")
@@ -69,6 +71,9 @@ script = ExtResource("4_wdkmw")
 [node name="Follow" type="Node" parent="State_Machine"]
 script = ExtResource("7_6ybb5")
 
+[node name="Selected" type="Node2D" parent="State_Machine"]
+script = ExtResource("8_3n4fh")
+
 [node name="TamaGochiStatusUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -101,6 +106,7 @@ shape = SubResource("CircleShape2D_4b0ir")
 [node name="Mouth" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mouth"]
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_6ybb5")
 debug_color = Color(0.995981, 0, 0.195412, 0.42)
 

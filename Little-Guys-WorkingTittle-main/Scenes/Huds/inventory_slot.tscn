@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7jktgjtkiemu"]
+
+[ext_resource type="Texture2D" uid="uid://ynd0r5f6kcyv" path="res://Assets/UI/Item_Slot_Simple.png" id="1_ejerk"]
+[ext_resource type="Texture2D" uid="uid://xhvvrev52bp4" path="res://Assets/Foods/Banana.png" id="2_54nyn"]
+[ext_resource type="FontFile" uid="uid://bpf416n2hbfkv" path="res://Assets/Fonts/pixel.ttf" id="2_vaalo"]
+
+[node name="Inventory_Slot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -304.0
+offset_bottom = -164.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SlotBG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("1_ejerk")
+expand_mode = 4
+
+[node name="Item_Icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("2_54nyn")
+
+[node name="Item_Count" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_vaalo")
+theme_override_font_sizes/font_size = 5
+text = "1"
+horizontal_alignment = 2
+vertical_alignment = 2

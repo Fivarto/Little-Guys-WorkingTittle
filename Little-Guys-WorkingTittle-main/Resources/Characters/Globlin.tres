@@ -17,6 +17,6 @@ sprite = ExtResource("2_wl84u")
 health = 50.0
 hunger = 100.0
 stomach_size = 100.0
-move_speed = 10.0
+move_speed = 50.0
 material = SubResource("ShaderMaterial_0eusx")
 metadata/_custom_type_script = "uid://byvkwtdmtokyv"

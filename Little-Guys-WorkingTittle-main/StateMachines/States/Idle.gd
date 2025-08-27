@@ -6,6 +6,7 @@ var move_to_position: Vector2
 var wander_timer : float
 
 var target_temp: Area2D
+var move_speed_temp : float
 
 
 func randomize_wander():
@@ -16,7 +17,9 @@ func randomize_wander():
 
 func _Enter():
 	print("ENTROU IDLE")
-	target_temp = get_tree().get_first_node_in_group("Items")
+	SignalBus.FoodSpawned.connect(get_target)
+	get_target()
+	owner.tama_res.move_speed = 10
 	randomize_wander()
 
 
@@ -42,3 +45,8 @@ func _Physics_Update(delta: float):
 			Transitioned.emit(self, "Follow")
 	else:
 		target_temp = null
+
+
+func get_target():
+	
+	target_temp = get_tree().get_first_node_in_group("Items")

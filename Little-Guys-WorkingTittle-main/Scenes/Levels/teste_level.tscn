@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cgpmisvuowcis" path="res://Scenes/Tamagochis/Tamagochi_Base.tscn" id="1_ttep0"]
 [ext_resource type="Texture2D" uid="uid://c05m22td4gs5v" path="res://Assets/TileSets/Grass.png" id="1_xe3i6"]
-[ext_resource type="PackedScene" uid="uid://dnut3c4vx4fml" path="res://Scenes/Food/food.tscn" id="2_d0783"]
+[ext_resource type="PackedScene" uid="uid://cb5hgibll60nv" path="res://Scenes/Huds/item_shop_wip.tscn" id="3_xe3i6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_puijc"]
 texture = ExtResource("1_xe3i6")
@@ -26,7 +26,8 @@ tile_map_data = PackedByteArray("AAAAAAAAAAACAAEAAAAAAAEAAAACAAEAAAAAAAIAAAACAAE
 tile_set = SubResource("TileSet_d0783")
 
 [node name="Tamagochi_Base" parent="." instance=ExtResource("1_ttep0")]
-position = Vector2(110, 64)
+position = Vector2(120, 85)
 
-[node name="Food" parent="." instance=ExtResource("2_d0783")]
-position = Vector2(278, 30)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ItemShop-WIP" parent="CanvasLayer" instance=ExtResource("3_xe3i6")]

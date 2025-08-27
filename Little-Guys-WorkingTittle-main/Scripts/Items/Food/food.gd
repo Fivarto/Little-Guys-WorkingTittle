@@ -12,6 +12,7 @@ var drag_offset:= Vector2.ZERO
 func _ready() -> void:
 	
 	add_to_group("Food")
+	SignalBus.FoodSpawned.emit()
 	food_sprite.texture = food_res.food_sprite
 
 

@@ -52,8 +52,7 @@ func _input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	
-	tama_res.hunger -= delta * 2
-	
+	tama_res.hunger -= delta 
 	hunger_bar.value = tama_res.hunger
 
 func _physics_process(delta: float) -> void:
@@ -84,7 +83,6 @@ func _mouse_over(mouse_pos: Vector2):
 	
 	return false
 	
-
 
 func set_selected_outline(value: bool) -> void:
 	

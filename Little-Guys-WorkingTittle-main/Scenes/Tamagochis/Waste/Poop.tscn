@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://qjymeatwbcqf"]
+
+[ext_resource type="Texture2D" uid="uid://b61635hhaxa5d" path="res://Assets/Characters/Poop/Sprite-0002.png" id="1_0n6h8"]
+[ext_resource type="Script" uid="uid://dbq8msh6kwitf" path="res://Scripts/Characters/poop.gd" id="1_3xoer"]
+[ext_resource type="Shader" uid="uid://bavvuj5f5avx8" path="res://Shadders/Outline.gdshader" id="3_31308"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xoer"]
+radius = 8.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yxkqs"]
+shader = ExtResource("3_31308")
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_time_scale = 0.0
+
+[sub_resource type="Gradient" id="Gradient_ojw5f"]
+offsets = PackedFloat32Array(0, 0.228188)
+colors = PackedColorArray(0.196078, 0.168627, 0.156863, 1, 0.443137, 0.254902, 0.231373, 1)
+
+[node name="Poop" type="Node2D"]
+script = ExtResource("1_3xoer")
+
+[node name="PoopSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_0n6h8")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_3xoer")
+
+[node name="ExplosionParticles" type="CPUParticles2D" parent="."]
+material = SubResource("ShaderMaterial_yxkqs")
+use_parent_material = true
+position = Vector2(0, 6)
+rotation = -1.5708
+emitting = false
+amount = 16
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+emission_shape = 2
+emission_sphere_radius = 1.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 100.0
+linear_accel_max = 3.0
+radial_accel_min = -0.2
+radial_accel_max = 5.0
+scale_amount_min = 0.2
+scale_amount_max = 1.5
+color_ramp = SubResource("Gradient_ojw5f")
