@@ -12,12 +12,13 @@ var move_speed_temp : float
 func randomize_wander():
 	
 	if !owner.selected:
-		move_to_position = Vector2(randf_range(-1 , 1) , randf_range(-1 , 1))
+		move_to_position = Vector2(randf_range(-1 , 1),randf_range(-1 , 1))
 		wander_timer = randf_range(1, 3)
 
 func _Enter():
 	print("ENTROU IDLE")
-	SignalBus.FoodSpawned.connect(get_target)
+	if not SignalBus.FoodSpawned.is_connected(get_target):
+		SignalBus.FoodSpawned.connect(get_target)
 	get_target()
 	owner.tama_res.move_speed = 10
 	randomize_wander()

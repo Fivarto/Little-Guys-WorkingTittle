@@ -66,8 +66,18 @@ func _physics_process(delta: float) -> void:
 			if global_position.distance_to(target_position) < 5:
 				velocity = Vector2.ZERO
 				target_position = Vector2.ZERO
-	else:
-		move_and_slide()
+	elif tama_body:
+		
+		tama_body.move_and_slide()
+		
+		var viewport_rect = get_viewport().get_visible_rect()
+		var pos = tama_body.global_position
+		
+		#CLAMPING TAMAGOCHI IN THE VIEWPORT 
+		pos.x = clamp(pos.x, viewport_rect.position.x, viewport_rect.end.x)
+		pos.y = clamp(pos.y, viewport_rect.position.y, viewport_rect.end.y)
+		
+		tama_body.global_position = pos
 
 
 

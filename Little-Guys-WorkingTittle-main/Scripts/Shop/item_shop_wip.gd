@@ -2,7 +2,7 @@ extends Control
 
 const FOOD = preload("res://Scenes/Food/food.tscn")
 
-@onready var buy_button: TextureButton = $GridContainer/Cursor3/VBoxContainer/TextureButton
+@onready var buy_button: TextureButton = $GridContainer/Cursor3/VBoxContainer/buy_button
 
 
 
@@ -12,4 +12,4 @@ func _on_buy_button_pressed() -> void:
 	
 	food_ins.position = Vector2(50, 50)
 	
-	add_child(food_ins)
+	owner.add_child(food_ins)

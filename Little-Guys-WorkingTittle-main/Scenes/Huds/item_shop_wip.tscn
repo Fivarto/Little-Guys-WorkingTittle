@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://ynd0r5f6kcyv" path="res://Assets/UI/Item_Slot_Simple.png" id="1_1ga6k"]
 [ext_resource type="Script" uid="uid://3rob3uo3kdcd" path="res://Scripts/Shop/item_shop_wip.gd" id="1_73m1w"]
-[ext_resource type="Texture2D" uid="uid://b5rtgaiu0ls7l" path="res://Assets/Foods/Carrot.png" id="1_a6kiv"]
 [ext_resource type="Texture2D" uid="uid://c1u7daulmudad" path="res://Assets/UI/Button_Base_Hover48x16.png" id="1_vu2r5"]
 [ext_resource type="Texture2D" uid="uid://dcduoibasqjo8" path="res://Assets/UI/Button_Base_Click48x16.png" id="2_a6kiv"]
 [ext_resource type="Texture2D" uid="uid://vwxoy2l3d6bn" path="res://Assets/UI/Button_Base48x16.png" id="3_1ga6k"]
+[ext_resource type="Texture2D" uid="uid://vriln0errsmi" path="res://Assets/Foods/GreenApple.png" id="3_73m1w"]
 [ext_resource type="FontFile" uid="uid://bpf416n2hbfkv" path="res://Assets/Fonts/pixel.ttf" id="4_73m1w"]
 
 [node name="ItemShop-WIP" type="Control"]
@@ -44,16 +44,20 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Item_Slot" type="TextureRect" parent="GridContainer/Cursor3/VBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
+size_flags_horizontal = 4
 texture = ExtResource("1_1ga6k")
-expand_mode = 4
+stretch_mode = 2
 
 [node name="Item_Icon" type="TextureRect" parent="GridContainer/Cursor3/VBoxContainer/Item_Slot"]
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
-offset_right = 48.0
-offset_bottom = 48.0
-texture = ExtResource("1_a6kiv")
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("3_73m1w")
 expand_mode = 4
+stretch_mode = 2
 
 [node name="buy_button" type="TextureButton" parent="GridContainer/Cursor3/VBoxContainer"]
 custom_minimum_size = Vector2(48, 16)
