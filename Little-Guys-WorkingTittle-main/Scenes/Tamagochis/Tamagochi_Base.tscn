@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cgpmisvuowcis"]
+[gd_scene load_steps=32 format=3 uid="uid://cgpmisvuowcis"]
 
 [ext_resource type="Script" uid="uid://by286l76qnjef" path="res://Scripts/Characters/tamagochi_base.gd" id="1_udyy6"]
 [ext_resource type="Resource" uid="uid://c1c6g7as46uy6" path="res://Resources/Characters/Globlin.tres" id="2_qhw52"]
@@ -6,16 +6,128 @@
 [ext_resource type="Texture2D" uid="uid://dwq1xldgnedap" path="res://Assets/Characters/Globlin_Base.png" id="3_o4c1h"]
 [ext_resource type="Shader" uid="uid://bavvuj5f5avx8" path="res://Shadders/Outline.gdshader" id="3_ua8gj"]
 [ext_resource type="Script" uid="uid://c1rvisii8jkr4" path="res://StateMachines/States/Idle.gd" id="4_wdkmw"]
+[ext_resource type="Texture2D" uid="uid://hao6tm83dasn" path="res://Assets/Characters/Animation/Eat/Globlin_01.png" id="5_eat8r"]
+[ext_resource type="Texture2D" uid="uid://b2uxnsdquhinn" path="res://Assets/Characters/Animation/Idle/Globlin_01.png" id="5_fpeyj"]
+[ext_resource type="Texture2D" uid="uid://bsb5r1o6nsa7w" path="res://Assets/Characters/Animation/Walk/Globlin_01.png" id="6_2ylot"]
 [ext_resource type="Texture2D" uid="uid://cbr4n5lc6v5jt" path="res://Assets/UI/StatusBar8PX.png" id="6_4b0ir"]
 [ext_resource type="Script" uid="uid://csxyy3yyviwr5" path="res://StateMachines/States/follow.gd" id="7_6ybb5"]
 [ext_resource type="Texture2D" uid="uid://q4mvdwkk3ufv" path="res://Assets/UI/StatusBar_FULL8PX.png" id="7_ua8gj"]
 [ext_resource type="Script" uid="uid://b7iwn4cjc6la4" path="res://StateMachines/States/Selected.gd" id="8_3n4fh"]
+[ext_resource type="Script" uid="uid://d0i46v5mbm4v2" path="res://StateMachines/States/Eat.gd" id="12_bqp4o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6ybb5"]
 shader = ExtResource("3_ua8gj")
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/blink_color = Color(1, 1, 1, 1)
 shader_parameter/blink_time_scale = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bqp4o"]
+shader = ExtResource("3_ua8gj")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_time_scale = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vk2x"]
+atlas = ExtResource("5_eat8r")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok0kl"]
+atlas = ExtResource("5_eat8r")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7t4hv"]
+atlas = ExtResource("5_eat8r")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fnv1"]
+atlas = ExtResource("5_eat8r")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ylot"]
+atlas = ExtResource("5_fpeyj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eat8r"]
+atlas = ExtResource("5_fpeyj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqp4o"]
+atlas = ExtResource("5_fpeyj")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5t7xv"]
+atlas = ExtResource("5_fpeyj")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgxe6"]
+atlas = ExtResource("6_2ylot")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_504pt"]
+atlas = ExtResource("6_2ylot")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqkeq"]
+atlas = ExtResource("6_2ylot")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edbbk"]
+atlas = ExtResource("6_2ylot")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fgxe6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vk2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok0kl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7t4hv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fnv1")
+}],
+"loop": true,
+"name": &"Eat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ylot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eat8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqp4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5t7xv")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgxe6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_504pt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqkeq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edbbk")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4b0ir"]
 radius = 11.0
@@ -29,6 +141,7 @@ tama_res = ExtResource("2_qhw52")
 tama_body = NodePath(".")
 
 [node name="Tamagochi_Sprite" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 material = SubResource("ShaderMaterial_6ybb5")
 use_parent_material = true
@@ -61,6 +174,14 @@ metadata/_aseprite_wizard_config_ = {
 }
 metadata/_aseprite_wizard_source_file_hash_ = "a048cab1b557a5c93967c2111415a319"
 
+[node name="Tamagochi_Animation" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_bqp4o")
+use_parent_material = true
+sprite_frames = SubResource("SpriteFrames_fgxe6")
+animation = &"Eat"
+autoplay = "Walk"
+frame_progress = 0.531136
+
 [node name="State_Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("3_d8xg3")
 initial_state = NodePath("Idle")
@@ -73,6 +194,9 @@ script = ExtResource("7_6ybb5")
 
 [node name="Selected" type="Node2D" parent="State_Machine"]
 script = ExtResource("8_3n4fh")
+
+[node name="Eat" type="Node" parent="State_Machine"]
+script = ExtResource("12_bqp4o")
 
 [node name="TamaGochiStatusUI" type="Control" parent="."]
 layout_mode = 3

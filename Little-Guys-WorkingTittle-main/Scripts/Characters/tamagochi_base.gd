@@ -5,6 +5,7 @@ class_name Tamagochi_Base
 @export var tama_res: TamagochiStats
 @export var tama_body: CharacterBody2D
 @onready var tamagochi_sprite: Sprite2D = $Tamagochi_Sprite
+@onready var tamagochi_animation: AnimatedSprite2D = $Tamagochi_Animation
 
 
 #CHILD NODES
@@ -98,7 +99,7 @@ func set_selected_outline(value: bool) -> void:
 	
 	selected = value
 	tamagochi_sprite.use_parent_material = !selected
-	
+	tamagochi_animation.use_parent_material = !selected
 
 
 #TODO

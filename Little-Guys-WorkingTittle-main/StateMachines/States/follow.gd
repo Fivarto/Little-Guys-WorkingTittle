@@ -28,6 +28,6 @@ func _Physics_Update(delta: float):
 
 func _food_eaten():
 	
-	Transitioned.emit(self, "Idle")
+	Transitioned.emit(self, "Eat")
 	
 	pass

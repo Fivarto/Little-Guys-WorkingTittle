@@ -8,6 +8,7 @@ var wander_timer : float
 var target_temp: Area2D
 var move_speed_temp : float
 
+@onready var tamagochi_animation: AnimatedSprite2D = $"../../Tamagochi_Animation"
 
 func randomize_wander():
 	
@@ -17,8 +18,13 @@ func randomize_wander():
 
 func _Enter():
 	print("ENTROU IDLE")
+	
+	tamagochi_animation.play("Walk")
+	
 	if not SignalBus.FoodSpawned.is_connected(get_target):
 		SignalBus.FoodSpawned.connect(get_target)
+	
+	
 	get_target()
 	owner.tama_res.move_speed = 10
 	randomize_wander()
