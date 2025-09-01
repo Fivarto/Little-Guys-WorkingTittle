@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm5ay3hq8gocj"]
+
+[ext_resource type="Script" uid="uid://31jkhkfy33qe" path="res://Scripts/Items/Bath/bath_item_base.gd" id="1_0r8ek"]
+[ext_resource type="Texture2D" uid="uid://sox7f74xdll3" path="res://Assets/BathItems/Soap.png" id="1_f88el"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f88el"]
+size = Vector2(38, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0r8ek"]
+
+[node name="Bath_Item" type="Area2D" groups=["Hygien"]]
+z_index = 11
+collision_layer = 8
+collision_mask = 20
+script = ExtResource("1_0r8ek")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_f88el")
+
+[node name="Mouse_Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_f88el")
+
+[node name="Function_Area" type="Area2D" parent="." groups=["Hygien"]]
+collision_layer = 8
+collision_mask = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Function_Area" groups=["Hygien"]]
+shape = SubResource("RectangleShape2D_0r8ek")
+debug_color = Color(0.980258, 0, 0.381196, 0.42)

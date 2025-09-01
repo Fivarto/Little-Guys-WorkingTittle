@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://cb5hgibll60nv"]
+
+[ext_resource type="Texture2D" uid="uid://ynd0r5f6kcyv" path="res://Assets/UI/Item_Slot_Simple.png" id="1_1ga6k"]
+[ext_resource type="Script" uid="uid://3rob3uo3kdcd" path="res://Scripts/Shop/item_shop_wip.gd" id="1_73m1w"]
+[ext_resource type="Texture2D" uid="uid://c1u7daulmudad" path="res://Assets/UI/Button_Base_Hover48x16.png" id="1_vu2r5"]
+[ext_resource type="Texture2D" uid="uid://dcduoibasqjo8" path="res://Assets/UI/Button_Base_Click48x16.png" id="2_a6kiv"]
+[ext_resource type="Texture2D" uid="uid://vwxoy2l3d6bn" path="res://Assets/UI/Button_Base48x16.png" id="3_1ga6k"]
+[ext_resource type="Texture2D" uid="uid://vriln0errsmi" path="res://Assets/Foods/GreenApple.png" id="3_73m1w"]
+[ext_resource type="FontFile" uid="uid://bpf416n2hbfkv" path="res://Assets/Fonts/pixel.ttf" id="4_73m1w"]
+
+[node name="ItemShop-WIP" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_73m1w")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -69.0
+offset_right = 90.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/h_separation = 56
+theme_override_constants/v_separation = 72
+columns = 3
+
+[node name="Cursor3" type="Control" parent="GridContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GridContainer/Cursor3"]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 48.0
+offset_bottom = 72.0
+
+[node name="Item_Slot" type="TextureRect" parent="GridContainer/Cursor3/VBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_1ga6k")
+stretch_mode = 2
+
+[node name="Item_Icon" type="TextureRect" parent="GridContainer/Cursor3/VBoxContainer/Item_Slot"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("3_73m1w")
+expand_mode = 4
+stretch_mode = 2
+
+[node name="buy_button" type="TextureButton" parent="GridContainer/Cursor3/VBoxContainer"]
+custom_minimum_size = Vector2(48, 16)
+layout_mode = 2
+texture_normal = ExtResource("3_1ga6k")
+texture_pressed = ExtResource("2_a6kiv")
+texture_hover = ExtResource("1_vu2r5")
+
+[node name="Label" type="Label" parent="GridContainer/Cursor3/VBoxContainer/buy_button"]
+layout_mode = 1
+offset_right = 48.0
+offset_bottom = 16.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_73m1w")
+theme_override_font_sizes/font_size = 5
+text = "100"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="GridContainer/Cursor3/VBoxContainer/buy_button" to="." method="_on_buy_button_pressed"]

@@ -1,0 +1,369 @@
+[gd_scene load_steps=50 format=3 uid="uid://cgpmisvuowcis"]
+
+[ext_resource type="Script" uid="uid://by286l76qnjef" path="res://Scripts/Characters/tamagochi_base.gd" id="1_udyy6"]
+[ext_resource type="Resource" uid="uid://c1c6g7as46uy6" path="res://Resources/Characters/Globlin.tres" id="2_qhw52"]
+[ext_resource type="Texture2D" uid="uid://dwq1xldgnedap" path="res://Assets/Characters/Globlin_Base.png" id="3_o4c1h"]
+[ext_resource type="Shader" uid="uid://bavvuj5f5avx8" path="res://Shadders/Outline.gdshader" id="3_ua8gj"]
+[ext_resource type="Script" uid="uid://c1rvisii8jkr4" path="res://StateMachines/States/Idle.gd" id="4_wdkmw"]
+[ext_resource type="Texture2D" uid="uid://hao6tm83dasn" path="res://Assets/Characters/Animation/Eat/Globlin_01.png" id="5_eat8r"]
+[ext_resource type="Texture2D" uid="uid://b2uxnsdquhinn" path="res://Assets/Characters/Animation/Idle/Globlin_01.png" id="5_fpeyj"]
+[ext_resource type="Texture2D" uid="uid://bsb5r1o6nsa7w" path="res://Assets/Characters/Animation/Walk/Globlin_01.png" id="6_2ylot"]
+[ext_resource type="Texture2D" uid="uid://cbr4n5lc6v5jt" path="res://Assets/UI/StatusBar8PX.png" id="6_4b0ir"]
+[ext_resource type="Script" uid="uid://csxyy3yyviwr5" path="res://StateMachines/States/follow.gd" id="7_6ybb5"]
+[ext_resource type="Texture2D" uid="uid://q4mvdwkk3ufv" path="res://Assets/UI/StatusBar_FULL8PX.png" id="7_ua8gj"]
+[ext_resource type="Script" uid="uid://b7iwn4cjc6la4" path="res://StateMachines/States/Selected.gd" id="8_3n4fh"]
+[ext_resource type="Script" uid="uid://dds564yh606w3" path="res://StateMachines/Scripts/state_machine_base.gd" id="8_mvdg2"]
+[ext_resource type="Script" uid="uid://d0i46v5mbm4v2" path="res://StateMachines/States/Eat.gd" id="12_bqp4o"]
+[ext_resource type="Texture2D" uid="uid://dyr3khctpc4e0" path="res://Assets/UI/Stats_Icons/Hunger_Icon_Full.png" id="15_5t7xv"]
+[ext_resource type="Texture2D" uid="uid://cgt667kungtx8" path="res://Assets/UI/Stats_Icons/Hunger_Icon_Half.png" id="16_7vk2x"]
+[ext_resource type="Texture2D" uid="uid://bgu57tr4v367m" path="res://Assets/UI/Stats_Icons/Hunger_Icon_Empty.png" id="17_ok0kl"]
+[ext_resource type="Texture2D" uid="uid://dxie0xw38hkqe" path="res://Assets/UI/Stats_Icons/Energy_Icon_Full.png" id="18_7t4hv"]
+[ext_resource type="Texture2D" uid="uid://c3r1nccv3qpsy" path="res://Assets/UI/Stats_Icons/Energy_Icon_Half.png" id="19_5fnv1"]
+[ext_resource type="Texture2D" uid="uid://c1noh3nkymppq" path="res://Assets/UI/Stats_Icons/Energy_Icon_Empty.png" id="20_n5gn3"]
+[ext_resource type="Texture2D" uid="uid://f68bbj0c8e8t" path="res://Assets/UI/Stats_Icons/Happiness_Icon_Full.png" id="21_5fnv1"]
+[ext_resource type="Texture2D" uid="uid://b53bptqscuind" path="res://Assets/UI/Stats_Icons/Happiness_Icon_Half.png" id="22_n5gn3"]
+[ext_resource type="Texture2D" uid="uid://ddilm2j6n1fhc" path="res://Assets/UI/Stats_Icons/Happiness_Icon_Empty.png" id="23_788xb"]
+[ext_resource type="Texture2D" uid="uid://c8ijxvynr2kdu" path="res://Assets/UI/Stats_Icons/Hygien_Icon_Full.png" id="24_mvdg2"]
+[ext_resource type="Texture2D" uid="uid://su1xglvp70q1" path="res://Assets/UI/Stats_Icons/Hygien_Icon_Half.png" id="25_jucmd"]
+[ext_resource type="Texture2D" uid="uid://bhepvdo2y5xab" path="res://Assets/UI/Stats_Icons/Hygien_Icon_Empty.png" id="26_eev1g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ybb5"]
+shader = ExtResource("3_ua8gj")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_time_scale = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bqp4o"]
+shader = ExtResource("3_ua8gj")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/blink_color = Color(1, 1, 1, 1)
+shader_parameter/blink_time_scale = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vk2x"]
+atlas = ExtResource("5_eat8r")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok0kl"]
+atlas = ExtResource("5_eat8r")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7t4hv"]
+atlas = ExtResource("5_eat8r")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5fnv1"]
+atlas = ExtResource("5_eat8r")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ylot"]
+atlas = ExtResource("5_fpeyj")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eat8r"]
+atlas = ExtResource("5_fpeyj")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqp4o"]
+atlas = ExtResource("5_fpeyj")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5t7xv"]
+atlas = ExtResource("5_fpeyj")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgxe6"]
+atlas = ExtResource("6_2ylot")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_504pt"]
+atlas = ExtResource("6_2ylot")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqkeq"]
+atlas = ExtResource("6_2ylot")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edbbk"]
+atlas = ExtResource("6_2ylot")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fgxe6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vk2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok0kl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7t4hv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5fnv1")
+}],
+"loop": true,
+"name": &"Eat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ylot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eat8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqp4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5t7xv")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgxe6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_504pt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqkeq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edbbk")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_788xb"]
+atlas = ExtResource("15_5t7xv")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mvdg2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_788xb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_7vk2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_ok0kl")
+}],
+"loop": true,
+"name": &"Stats",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jucmd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_7t4hv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_5fnv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_n5gn3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eev1g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_5fnv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_n5gn3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_788xb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5dqku"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_mvdg2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_jucmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_eev1g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4b0ir"]
+radius = 11.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ybb5"]
+size = Vector2(12, 12)
+
+[sub_resource type="Gradient" id="Gradient_fgxe6"]
+offsets = PackedFloat32Array(0.353333, 0.66)
+colors = PackedColorArray(0.500576, 0, 0.240819, 1, 0.871983, 0, 0.177167, 1)
+
+[node name="Tamagochi_Base" type="CharacterBody2D" node_paths=PackedStringArray("tama_body") groups=["Tamagochi"]]
+z_index = 10
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_udyy6")
+tama_res = ExtResource("2_qhw52")
+tama_body = NodePath(".")
+
+[node name="Tamagochi_Sprite" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+material = SubResource("ShaderMaterial_6ybb5")
+use_parent_material = true
+texture = ExtResource("3_o4c1h")
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": true,
+"pending_changes": {
+"source": "res://AsepriteFiles/MonsterSpriteBases.aseprite"
+},
+"slice_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": ["Monsters"],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://Assets/AsepriteFiles/MonsterSpriteBases.aseprite",
+"source_uid": 700413002271198916
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a048cab1b557a5c93967c2111415a319"
+
+[node name="Tamagochi_Animation" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_bqp4o")
+use_parent_material = true
+sprite_frames = SubResource("SpriteFrames_fgxe6")
+animation = &"Idle"
+autoplay = "Walk"
+frame_progress = 0.202878
+
+[node name="State_Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("8_mvdg2")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="State_Machine"]
+script = ExtResource("4_wdkmw")
+
+[node name="Follow" type="Node" parent="State_Machine"]
+script = ExtResource("7_6ybb5")
+
+[node name="Selected" type="Node2D" parent="State_Machine"]
+script = ExtResource("8_3n4fh")
+
+[node name="Eat" type="Node" parent="State_Machine"]
+script = ExtResource("12_bqp4o")
+
+[node name="TamaGochiStatusUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -19.0
+offset_top = -18.0
+offset_right = 21.0
+offset_bottom = 22.0
+
+[node name="HungerBar" type="TextureProgressBar" parent="TamaGochiStatusUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -24.0
+offset_right = 7.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("6_4b0ir")
+texture_progress = ExtResource("7_ua8gj")
+
+[node name="HungerIcon" type="AnimatedSprite2D" parent="TamaGochiStatusUI"]
+position = Vector2(6, 13)
+sprite_frames = SubResource("SpriteFrames_mvdg2")
+animation = &"Stats"
+frame_progress = 0.498407
+
+[node name="EnergyIcon" type="AnimatedSprite2D" parent="TamaGochiStatusUI"]
+position = Vector2(6, 22)
+sprite_frames = SubResource("SpriteFrames_jucmd")
+
+[node name="HappinessIcon" type="AnimatedSprite2D" parent="TamaGochiStatusUI"]
+position = Vector2(32, 13)
+sprite_frames = SubResource("SpriteFrames_eev1g")
+
+[node name="HygienIcon" type="AnimatedSprite2D" parent="TamaGochiStatusUI"]
+position = Vector2(32, 22)
+sprite_frames = SubResource("SpriteFrames_5dqku")
+
+[node name="SelectionArea" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+
+[node name="SelectAreaCollision" type="CollisionShape2D" parent="SelectionArea"]
+shape = SubResource("CircleShape2D_4b0ir")
+
+[node name="Mouth" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouth"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_6ybb5")
+debug_color = Color(0.995981, 0, 0.195412, 0.42)
+
+[node name="Status_Particle" type="CPUParticles2D" parent="."]
+position = Vector2(0, -5)
+emitting = false
+amount = 4
+texture = ExtResource("15_5t7xv")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 75.0
+scale_amount_min = 0.5
+color_ramp = SubResource("Gradient_fgxe6")
+
+[connection signal="area_entered" from="SelectionArea" to="." method="_on_selection_area_area_entered"]
+[connection signal="area_exited" from="SelectionArea" to="." method="_on_selection_area_area_exited"]
+[connection signal="area_entered" from="Mouth" to="." method="_on_mouth_area_entered"]

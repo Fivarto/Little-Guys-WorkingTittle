@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://dh6v2qcyntoni"]
+
+[ext_resource type="Texture2D" uid="uid://vriln0errsmi" path="res://Assets/Foods/GreenApple.png" id="1_f8e4h"]
+[ext_resource type="Script" uid="uid://c6t51f0tgfmcq" path="res://Resources/Items/Food/FoodStats.gd" id="1_fxdt3"]
+
+[resource]
+script = ExtResource("1_fxdt3")
+food_sprite = ExtResource("1_f8e4h")
+food_name = "GreenApple"
+hunger_restore = 30
+metadata/_custom_type_script = "uid://c6t51f0tgfmcq"
